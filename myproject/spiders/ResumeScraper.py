@@ -5,7 +5,7 @@ class ResumeScraper(scrapy.Spider):
     name = "myResumeScraper"
 
     def start_requests(self):
-        yield scrapy.Request(url = "http://localhost/resumeLinks.html", callback=self.parseResumeLists)
+        yield scrapy.Request(url = "http://dkaf.coffee/resumeLinks.html", callback=self.parseResumeLists)
 
     def parseResumeLists(self, response):
         links = response.css("ul#resumeStuff a::attr(href)").extract()
